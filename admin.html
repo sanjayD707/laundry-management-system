@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            LaundryPro
+        </div>
+
+        <ul>
+            <li>📊 Dashboard</li>
+            <li>📦 Orders</li>
+            <li>👥 Customers</li>
+            <li>💰 Revenue</li>
+            <li>⚙️ Settings</li>
+            <li>🚪 Logout</li>
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <h1>Dashboard Overview</h1>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <h3>Total Orders</h3>
+                <p id="totalOrders">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Pending Orders</h3>
+                <p id="pendingOrders">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Delivered Orders</h3>
+                <p id="deliveredOrders">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Revenue</h3>
+                <p>₹0</p>
+            </div>
+
+        </div>
+
+        <!-- Orders Table -->
+
+        <div class="orders-section">
+
+            <h2>All Orders</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer ID</th>
+                        <th>Service</th>
+                        <th>Address</th>
+                        <th>Pickup Date</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="ordersTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/admin.js"></script>
+
+</body>
+</html>

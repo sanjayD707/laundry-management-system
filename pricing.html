@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - LaundryPro</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">LaundryPro</div>
+
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/">Services</a></li>
+                <li><a href="/pricing.html">Pricing</a></li>
+                <li><a href="/track-order.html">Track Order</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+
+            <div class="nav-buttons">
+                <a href="/login.html" class="btn-login">Login</a>
+                <a href="/book-now.html" class="btn-primary">Book Now</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Pricing Hero -->
+    <section class="pricing-section">
+
+    <div class="section-header">
+        <span>OUR PLANS</span>
+        <h2>Choose Your Laundry Service</h2>
+        <p>
+            Affordable pricing with premium quality cleaning,
+            pickup and delivery.
+        </p>
+    </div>
+
+    <div class="pricing-grid">
+
+        <div class="pricing-card">
+
+            <div class="card-icon">🧺</div>
+
+            <h3>Wash & Fold</h3>
+
+            <div class="price">
+                Starting at ₹15
+            </div>
+
+            <ul>
+                <li>✓ T-Shirts</li>
+                <li>✓ Shirts</li>
+                <li>✓ Jeans</li>
+                <li>✓ Trousers</li>
+            </ul>
+
+            <a href="book-now.html" class="btn-price">
+                Book Now
+            </a>
+
+        </div>
+
+        <div class="pricing-card popular">
+
+            <span class="badge">
+                MOST POPULAR
+            </span>
+
+            <div class="card-icon">👔</div>
+
+            <h3>Dry Cleaning</h3>
+
+            <div class="price">
+                Starting at ₹50
+            </div>
+
+            <ul>
+                <li>✓ Suits</li>
+                <li>✓ Blazers</li>
+                <li>✓ Jackets</li>
+                <li>✓ Premium Garments</li>
+            </ul>
+
+            <a href="book-now.html" class="btn-price">
+                Book Now
+            </a>
+
+        </div>
+
+        <div class="pricing-card">
+
+            <div class="card-icon">⚡</div>
+
+            <h3>Express Service</h3>
+
+            <div class="price">
+                Same Day Delivery
+            </div>
+
+            <ul>
+                <li>✓ Pickup</li>
+                <li>✓ Cleaning</li>
+                <li>✓ Delivery</li>
+                <li>✓ Priority Support</li>
+            </ul>
+
+            <a href="book-now.html" class="btn-price">
+                Book Now
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="calculator">
+
+    <div class="calculator-card">
+
+        <h2>Estimate Your Laundry Cost</h2>
+
+        <select id="service">
+            <option value="15">Wash & Fold - ₹15</option>
+            <option value="50">Dry Cleaning - ₹50</option>
+            <option value="20">Ironing - ₹20</option>
+        </select>
+
+        <input
+            type="number"
+            id="quantity"
+            placeholder="Enter Quantity"
+            value="1"
+        >
+
+        <div class="result">
+            Total Price:
+            <span id="totalPrice">₹15</span>
+        </div>
+
+    </div>
+
+</section>
+<script src="/js/pricing.js"></script>
+</body>
+</html>

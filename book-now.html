@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Laundry Service</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">LaundryPro</div>
+
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/">Services</a></li>
+                <li><a href="/pricing.html">Pricing</a></li>
+                <li><a href="/track-order.html">Track Order</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+
+            <div class="nav-buttons">
+                <a href="/login.html" class="btn-login">Login</a>
+                
+            </div>
+        </nav>
+    </header>
+<section class="booking-section">
+
+```
+<div class="booking-card">
+
+    <h2>Book Laundry Pickup</h2>
+
+    <form id="bookingForm">
+
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Customer Name"
+            required
+        >
+
+        <input
+            type="tel"
+            id="phone"
+            placeholder="Phone Number"
+            required
+        >
+
+        <textarea
+            id="address"
+            placeholder="Pickup Address"
+            rows="4"
+            required
+        ></textarea>
+
+        <label>Service Type</label>
+
+        <select id="service">
+
+            <option>Wash & Fold</option>
+
+            <option>Dry Cleaning</option>
+
+            <option>Ironing</option>
+
+            <option>Premium Care</option>
+
+        </select>
+
+        <label>Pickup Date</label>
+
+        <input
+            type="date"
+            id="pickupDate"
+            required
+        >
+
+        <label>Pickup Time</label>
+
+        <input
+            type="time"
+            id="pickupTime"
+            required
+        >
+
+        <button type="submit">
+            Place Order
+        </button>
+
+    </form>
+
+    <div
+        id="successMessage"
+        style="margin-top:20px;"
+    ></div>
+
+</div>
+```
+
+</section>
+
+<script>
+
+const bookingForm =
+document.getElementById("bookingForm");
+
+bookingForm.addEventListener(
+"submit",
+async (e)=>{
+
+    e.preventDefault();
+
+    try{
+
+        const orderData = {
+
+            customer:
+            localStorage.getItem("userId"),
+
+            service:
+            document.getElementById("service").value,
+
+            address:
+            document.getElementById("address").value,
+
+            pickupDate:
+            document.getElementById("pickupDate").value
+
+        };
+
+        const response =
+        await fetch(
+        "http://localhost:5000/api/orders/create",
+        {
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify(orderData)
+        });
+
+        const result =
+        await response.json();
+
+        if(response.ok){
+
+            document
+            .getElementById("successMessage")
+            .innerHTML = `
+
+            <h3>
+            Booking Successful 🎉
+            </h3>
+
+            <p>
+            Order ID:
+            <strong>
+            ${result.order.orderId}
+            </strong>
+            </p>
+
+            <p>
+            Status:
+            ${result.order.status}
+            </p>
+
+            `;
+
+            bookingForm.reset();
+
+        }else{
+
+            alert(result.message);
+
+        }
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+        "Server Connection Error"
+        );
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
