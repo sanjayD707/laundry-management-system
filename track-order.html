@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Order</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<section class="tracking-section">
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Order</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<section class="tracking-section">
+
+    <div class="tracking-card">
+
+        <h2>Track Your Order</h2>
+
+        <input
+            type="text"
+            placeholder="Enter Order ID"
+            id="orderId"
+        >
+
+        <button onclick="trackOrder()">
+            Track Order
+        </button>
+
+        <div id="trackingResult"></div>
+
+    </div>
+
+</section>
+
+<script>
+function trackOrder(){
+
+    document.getElementById("trackingResult").innerHTML = `
+        <div class="timeline">
+            <p>✅ Order Placed</p>
+            <p>✅ Pickup Scheduled</p>
+            <p>✅ Picked Up</p>
+            <p>⏳ Washing</p>
+            <p>⭕ Delivered</p>
+        </div>
+    `;
+}
+</script>
+<script src="js/tracking.js"></script>
+</body>
+</html>

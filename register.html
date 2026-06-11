@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - LaundryPro</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="auth-container">
+
+    <form id="registerForm" class="auth-form">
+
+        <h2>Create Account</h2>
+
+        <input
+            id="name"
+            type="text"
+            placeholder="Full Name"
+            required
+        >
+
+        <input
+            id="email"
+            type="email"
+            placeholder="Email Address"
+            required
+        >
+
+        <input
+            id="phone"
+            type="tel"
+            placeholder="Phone Number"
+            required
+        >
+
+        <input
+            id="password"
+            type="password"
+            placeholder="Password"
+            required
+        >
+
+        <button type="submit">
+            Register
+        </button>
+
+        <p>
+            Already have an account?
+            <a href="login.html">Login</a>
+        </p>
+
+        <p id="message"></p>
+
+    </form>
+
+</div>
+
+<script>
+
+document
+.getElementById("registerForm")
+.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const name =
+    document.getElementById("name").value;
+
+    const email =
+    document.getElementById("email").value;
+
+    const password =
+    document.getElementById("password").value;
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:5000/api/auth/register",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type":
+                    "application/json"
+                },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    password
+                })
+            }
+        );
+
+        const data =
+        await response.json();
+
+        document.getElementById(
+            "message"
+        ).innerText = data.message;
+
+        if(response.ok){
+
+            alert("Registration Successful");
+
+            window.location.href =
+            "login.html";
+
+        }
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
